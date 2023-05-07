@@ -1,0 +1,23 @@
+vouch:
+  logLevel: debug
+  port: 9090
+
+  cookie:
+    secure: false
+
+  domains: # app domain and mail domain only
+  - vincere.io
+  - vinceredev.com
+  - theaccessgroup.com
+
+oauth:
+  provider: oidc
+  client_id: VOUCH_CLIENT_ID
+  auth_url: https://{yourCognitoDomain}.amazoncognito.com/oauth2/authorize
+  token_url: https://{yourCognitoDomain}.amazoncognito.com/oauth2/token
+  user_info_url: https://{yourCognitoDomain}.amazoncognito.com/oauth2/userInfo
+  scopes:
+  - openid
+  - email
+  - profile
+  callback_url: https://{callbackURL}/auth
